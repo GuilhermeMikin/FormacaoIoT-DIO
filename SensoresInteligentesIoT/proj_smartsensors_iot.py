@@ -70,11 +70,9 @@ def process_video_frames():
             print(f"classname: {label} ")
             if count > 15 and float(confidence) >= 0.7 and object_list[-1] != classNames[cls]:
                 object_list.append(classNames[cls])
-                print(f"listaa:{object_list}")
                 count = 0
             elif count > 15 and float(confidence) >= 0.4 and object_list[-1] != classNames[cls] and object_list[-2] != classNames[cls]:
                 object_list.append(classNames[cls])
-                print(f"listaa2:{object_list}")
                 count = 0
         except Exception:
             print("Exception")
