@@ -1,5 +1,7 @@
-# Authors: Fabio Vincenzi and Guilherme Balduino Lopes
-# This example uses the OpenCV (Open Source Computer Vision) library, created by Intel in 1999 and is written in C/C++import cv2
+"""
+Authors: Fabio Vincenzi and Guilherme Balduino Lopes
+This example uses the OpenCV (Open Source Computer Vision) library, created by Intel in 1999 and is written in C/C++import cv2
+"""
 import cv2
 
 # Create a classifier using the information contained in the haarcascade-frontalface-default.xml file

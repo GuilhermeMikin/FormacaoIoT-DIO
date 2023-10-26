@@ -1,8 +1,11 @@
+"""
+Example of face, eye and mouth detection with the webcam
+"""
 import cv2
 
-# classificador = cv2.CascadeClassifier('Frameworks_ML_IoT//Face_Detection//classificadores//haarcascade-frontalface-default.xml')
-# classificador = cv2.CascadeClassifier('Frameworks_ML_IoT//Face_Detection//classificadores//haarcascade-eye.xml')
-classifier = cv2.CascadeClassifier('Frameworks_ML_IoT//Face_Detection//classificadores//Mouth.xml')
+classifier = cv2.CascadeClassifier('Frameworks_ML_IoT//Face_Detection//classificadores//haarcascade-frontalface-default.xml')
+# classifier = cv2.CascadeClassifier('Frameworks_ML_IoT//Face_Detection//classificadores//haarcascade-eye.xml')
+# classifier = cv2.CascadeClassifier('Frameworks_ML_IoT//Face_Detection//classificadores//Mouth.xml')
 
 # start webcam
 cap = cv2.VideoCapture(0)

@@ -1,3 +1,7 @@
+"""
+An example of speech recogntion and text to speech for automations.
+It can sen
+"""
 import speech_recognition as sr
 import os
 from gtts import gTTS
@@ -9,7 +13,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from datetime import datetime
 
-#Função para ouvir e reconhecer a fala
+
 def listen():
     """Func to listen and recognize speak"""
     #Enable User's microphone
@@ -50,6 +54,7 @@ def listen():
 
 
 def text2peech(audio_path, text):
+    """Text to speech function, responsible for getting a string and saving it with google's voice"""
     gtts_object = gTTS(text=text, lang="pt", tld="com.br", slow=False)
     gtts_object.save(audio_path)
     sleep(.5)
@@ -61,6 +66,7 @@ def text2peech(audio_path, text):
 
 
 def send_email(corpo_email, email_recipt1, email_recipt2 = None):
+    """Function responsible for sending emails"""
     msg = MIMEMultipart()
     password = 'senha'
     msg['Subject'] = f'Assistente Python'
@@ -79,4 +85,6 @@ def send_email(corpo_email, email_recipt1, email_recipt2 = None):
     except Exception as e: 
         return 0
 
-listen()
+
+if __name__ == '__main__':
+    listen()
