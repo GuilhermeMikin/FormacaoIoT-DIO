@@ -5,3 +5,6 @@ tests/
 *.zip
 
 0data/
+
+fotos/
+*.yml

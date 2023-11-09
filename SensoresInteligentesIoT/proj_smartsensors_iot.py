@@ -1,3 +1,6 @@
+"""
+A multithreading program that can recognize some objects shown in the webcan and say what it is with "text to speech"
+"""
 from ultralytics import YOLO
 import cv2
 import math 
@@ -6,17 +9,20 @@ from pydub import AudioSegment
 import simpleaudio as sa
 from time import sleep
 from threading import Thread
+import sys
 
-object_list = list()
+
+object_list = list() # List of objects detected in the webcan
 
 def text2speech():
+    """Reads the last object saved in the list and say it"""
     global object_list
     while True:
         audio_path = "text.mp3"
         try:
             text = f"I saw a {object_list[-1]}"
         except Exception:
-            text = f"Hi"
+            text = f"Hello"
         gtts_object = gTTS(text=text, lang="en", slow=False)
         gtts_object.save(audio_path)
         sleep(.5)
@@ -30,6 +36,7 @@ def text2speech():
         except Exception:
             pass
         sleep(1)
+
 
 def process_video_frames():
     count = 0
@@ -87,18 +94,19 @@ def process_video_frames():
 
     cap.release()
     cv2.destroyAllWindows()
+    sys.exit()
 
 
 if __name__ == "__main__":
-    # start webcam
+    # Start webcam
     cap = cv2.VideoCapture(0)
     cap.set(3, 640)
     cap.set(4, 480)
 
-    # model
+    # Model
     model = YOLO("yolo-Weights/yolov8n.pt")
 
-    # object classes
+    # Object classes
     classNames = ["person", "bicycle", "car", "motorbike", "aeroplane", "bus", "train", "truck", "boat",
               "traffic light", "fire hydrant", "stop sign", "parking meter", "bench", "bird", "cat",
               "dog", "horse", "sheep", "cow", "elephant", "bear", "zebra", "giraffe", "backpack", "umbrella",

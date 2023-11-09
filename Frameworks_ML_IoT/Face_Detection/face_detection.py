@@ -7,7 +7,6 @@ import cv2
 # Create a classifier using the information contained in the haarcascade-frontalface-default.xml file
 classifier = cv2.CascadeClassifier('Frameworks_ML_IoT//Face_Detection//classificadores//haarcascade-frontalface-default.xml')
 
-
 # faces = cv2.imread('Frameworks_ML_IoT//Face_Detection//fotos//eeu.jpeg') # It loads the model.jpg image and stores it in the faces variable
 faces = cv2.imread('Frameworks_ML_IoT//Face_Detection//fotos//muitasFaces.jpg') # It loads the image many Faces.jpg and stores it in the faces variable
 gray_img = cv2.cvtColor(faces, cv2.COLOR_BGR2GRAY) # Converts color image to grayscale
